@@ -1,0 +1,540 @@
+.grid-container {
+  display: grid;
+  padding: 30px 0px;
+  width: 100%;
+  grid-gap: 30px;
+  justify-content: center;
+  grid-template-columns: repeat(5, 17%);
+}
+
+.grid-box {
+  background-color: var(--white);
+  box-shadow: 2px 2px 10px var(--main);
+  border-radius: 15px;
+  border: 1px solid var(--main);
+  color: #111111;
+  padding: 10px 30px 20px;
+}
+/* .grid-box:hover{
+  background-color: rgb(18, 110, 130, 15%);
+} */
+a {
+  text-decoration: none;
+}
+
+/* ----------------------------------Dashboard------------------------- */
+.dash-profile {
+  grid-column: span 3;
+  grid-row: span 2;
+  text-align: center;
+}
+
+.dash-agents, .dash-companies, .dash-queries, .dash-pending-task {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.dash-box-header {
+  font-size: 25px;
+}
+
+.dash-count {
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.dash-box-header span {
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.dash-task-list {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+.dash-task, .dash-query{
+  font-size: 20px;
+  /* margin-bottom: 15px; */
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.dash-task:hover, .dash-query:hover{
+  background-color: rgb(18, 110, 130, 15%);
+}
+.dash-task-date{
+  font-size: 20px;
+}
+.viewtask-button{
+  text-align: center;
+  margin: 10px 0px 0px;
+}
+.viewtask-button a{
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border: 1px solid var(--main);
+  box-shadow: 2px 2px 10px var(--main);
+  border-radius: 0 10px 0 10px;
+}
+.viewtask-button a:hover{
+  background-color: var(--main);
+  color: var(--white);
+  transition: ease 0.4s;
+}
+.dash-query-list{
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* for popup change information */
+.popup-overlay {
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+}
+.popup {
+  position:absolute;
+  top:-100%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(1.15);
+  width:30%;
+  height:600px;
+  background:#f5f5f5;
+  z-index:2;
+  opacity:0;
+  box-shadow:5px 5px 3px rgba(0,0,0,0.2);
+  transition:transform 300ms ease-in-out,opacity 300ms ease-in-out;
+}
+body.showLoginForm .popup-overlay {
+  display:block;
+}
+body.showLoginForm .popup {
+  top:58%;
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+.popup .popup-close {
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  width:40px;
+  height:40px;
+  background:#555;
+  color:#f5f5f5;
+  font-size:25px;
+  font-weight:600;
+  text-align:center;
+  border-radius:50%;
+  cursor:pointer;
+}
+.popup .form .header {
+  text-align:center;
+  font-size:20px;
+  font-weight:600;
+  color:#222;
+  margin:20px 0px;
+}
+.popup .form .element {
+  padding:8px 20px;
+}
+.popup .form .element label {
+  display:block;
+  font-size:17px;
+  color:#222;
+  margin-bottom:5px;
+  letter-spacing: 2px;
+}
+.popup .form .element input {
+  width:100%;
+  padding:8px 10px;
+  box-sizing:border-box;
+  outline:none;
+  border:1px solid #aaa;
+  background:#eee;
+  border-radius:5px;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.element button, .button{
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border: 1px solid var(--main);
+  box-shadow: 2px 2px 10px var(--main);
+  border-radius: 0 10px 0 10px;
+}
+.element button:hover, .button:hover{
+  background-color: var(--main);
+  color: var(--white);
+  transition: ease 0.4s;
+}
+
+/*for change password*/
+
+.popup2 {
+  position:absolute;
+  top:-150%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(1.15);
+  width:30%;
+  height:600px;
+  background:#f5f5f5;
+  z-index:2;
+  opacity:0;
+  box-shadow:5px 5px 3px rgba(0,0,0,0.2);
+  transition:transform 300ms ease-in-out,opacity 300ms ease-in-out;
+}
+
+body.showchangeForm .popup-overlay {
+  display:block;
+}
+body.showchangeForm .popup2 {
+  top:58%;
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+.popup2 .popup2-close {
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  width:40px;
+  height:40px;
+  background:#555;
+  color:#f5f5f5;
+  font-size:25px;
+  font-weight:600;
+  text-align:center;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.popup2 .form .header {
+  text-align:center;
+  font-size:20px;
+  font-weight:600;
+  color:#222;
+  margin:20px 0px;
+}
+.popup2 .form .element {
+  padding:8px 20px;
+}
+.popup2 .form .element label {
+  display:block;
+  font-size:17px;
+  color:#222;
+  margin-bottom:5px;
+  letter-spacing: 2px;
+}
+.popup2 .form .element input {
+  width:100%;
+  padding:8px 10px;
+  box-sizing:border-box;
+  outline:none;
+  border:1px solid #aaa;
+  background:#eee;
+  border-radius:5px;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+/* .popup2 .form .element .button3 {
+  margin-top:5px;
+  margin-left:35%;
+  width:30%;
+  padding:10px 0px;
+  outline:none;
+  border:none;
+  font-size:15px;
+  font-weight:600;
+  border-radius:5px;
+  cursor:pointer;
+  background:#ff7733;
+  color:#f5f5f5;
+} */
+.popup2 .form .element .button3:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* -------------------------------------------Add User---------------------------- */
+.add-user {
+  grid-column: span 5;
+  grid-row: auto;
+  padding: 50px 50px 20px;
+}
+
+.adduser-title {
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+}
+
+.adduser-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 50px;
+  background: var(--main);
+}
+
+form {
+  margin-top: 40px;
+}
+
+.adduser-details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.input-container {
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+.acc-radiobutton {
+  display: none;
+}
+
+.acc-label {
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 0 10px 0 10px;
+}
+
+.acc-radiobutton:checked+.acc-label {
+  transition: linear 0.3s;
+  background-color: var(--main);
+  color: var(--white);
+}
+
+.input-container label {
+  font-size: 20px;
+}
+
+.input-container input, select{
+  outline: none;
+  width: 55%;
+  padding: 5px 8px;
+  font-size: 18px;
+  background-color: transparent;
+  border: 1.5px var(--black) solid;
+  border-radius: 10px 0 10px 0;
+}
+
+input:focus {
+  border: 2px var(--main) solid;
+  background-color: #d8e3e7;
+}
+
+.adduser-btn {
+  padding: 10px 25px;
+  color: var(--white);
+  border-radius: 10px;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  border: 1.5px var(--main) solid;
+  background-color: var(--main);
+}
+
+.adduser-btn:hover {
+  background-color: #d8e3e7;
+  color: var(--main);
+  border: 1.5px var(--main) solid;
+  transition: ease 0.4s;
+}
+
+/* ---------------------------------------New Queries-------------------------- */
+.query-box {
+  grid-column: span 5;
+  position: relative;
+  margin: 20px;
+  padding: 25px;
+}
+
+.query-item {
+  border: 1px solid var(--main);
+  box-shadow: 2px 2px 5px var(--main);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: grid;
+  padding: 30px 20px;
+  font-size: 20px;
+  grid-template-columns: 3fr 1fr;
+}
+.light{
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.query-item:hover{
+  background-color: rgb(18, 110, 130, 15%);
+}
+.query-info{
+  grid-row: span 1;
+}
+.query-date{
+  grid-row: span 1;
+}
+.query-mgs{
+  grid-column: span 2;
+}
+ .action_btn button{
+   font-size: 20px;
+   float: right;
+   text-decoration: none;
+   color: black;
+   background-color: var(--white);
+   padding: 10px 20px;
+   border: 1px solid var(--main);
+   box-shadow: 2px 2px 2px var(--main);
+   border-radius: 0 10px 0 10px;
+ }
+.action_btn button:hover{
+  background-color: var(--main);
+  color: var(--white);
+  transition: ease 0.3s;
+  }
+
+.delete{
+  text-align: center;
+  margin: 10px 0px 0px;
+}
+
+.modal{
+    top: 25%;
+    width: 35%;
+    height: auto;
+    left: 40%;
+    position: absolute;
+    border: 1px solid var(--main);
+    background-color: var(--white);
+    z-index: 100;
+    text-align: center;
+    border-radius: 5px;
+}
+.modal-close{
+    right: 0;
+    top: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 25px;
+    color: var(--main);
+    position: absolute;
+}
+.modal-cont{
+    margin: 10px 0 5px;
+    padding: 5px 15px 0;
+    color: black;
+}
+.modal-delete-btn{
+  margin-bottom: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid var(--main);
+    box-shadow: 2px 2px 10px var(--main);
+    border-radius: 0 10px 0 10px;
+  }
+  .modal-delete-btn:hover{
+    background-color: var(--main);
+    color: var(--white);
+    transition: ease 0.4s;
+  }
+
+
+/* ------------------ Agents & Companies ------------------------ */
+
+.activity-card{
+  padding: 10px;
+  background: #fff;
+  border-radius: 7px;
+
+}
+
+.activity-card h3{
+  color: #8390A2;
+  margin: 1rem;
+}
+
+.activity-card table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.activity-card thead{
+  background: #efefef;
+  text-align: left;
+}
+
+th,td{
+  font-size: 1rem;
+  padding: 1rem .5rem;
+  color:#1D2231;
+}
+
+td{
+  font-size: .9rem;
+}
+
+tbody tr:nth-child(even){
+  background: #f9fafc;
+}
+
+
+.modal, .element{
+  padding:8px 20px;
+}
+.element label {
+  display:block;
+  font-size:17px;
+  color:#222;
+  margin-bottom:5px;
+  letter-spacing: 2px;
+}
+.element input {
+  width:100%;
+  padding:8px 10px;
+  box-sizing:border-box;
+  outline:none;
+  border:1px solid #aaa;
+  background:#eee;
+  border-radius:5px;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.status_label {
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  /* width: 50%; */
+  border-radius: 0 10px 0 10px;
+}
+.status-radiobutton{
+  display: none;
+}
+.status-radiobutton:checked+.status-label {
+  transition: linear 0.3s;
+  background-color: var(--main);
+  color: var(--white);
+}
+
+/* -----------------Agent Add Task ---------------------- */
+/* .input-container select{
+  font-size: 20px;
+  background-color: transparent;
+  border: 1.5px var(--black) solid;
+  border-radius: 10px 0 10px 0;
+} */
